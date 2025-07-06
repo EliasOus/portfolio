@@ -1,4 +1,4 @@
-import { Roboto_Serif } from "next/font/google";
+import { Roboto_Serif, Montserrat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -6,8 +6,15 @@ import Footer from "@/components/Footer";
 const robotoSerif = Roboto_Serif({
   variable: "--font-roboto-serif",
   subsets: ["latin"],
+  weight: ["400","500","600", "700", "800", "900"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400","500","600", "700", "800", "900"],
   style: ["normal", "italic"],
   display: "swap",
 });
@@ -20,9 +27,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr" className={robotoSerif} suppressHydrationWarning>
-      <body>
+      <body className="flex flex-col m-0 min-h-screen">
         <Header />
-        <main>{children}</main>
+        <main className="flex-1 h-full w-full mx-auto max-w-[65%] p-6">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 html {
   box-sizing: border-box;
   font-family: var(--font-roboto-serif);
@@ -15,5 +17,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-roboto-serif);
+  font-family: var(--font-montserrat);
+}
+
+.clip-triangle {
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
 }
