@@ -34,16 +34,16 @@ export default function Projet({
   return (
     <>
       <div
-        className={`flex flex-col lg:flex-row ${
+        className={`flex flex-col lg:flex-row lg:h-[26.5rem] ${
           isInvers ? "md:flex-row-reverse md:border-r-0" : "md:border-l-0"
         } border-[0.05rem] border-zinc-200 rounded-[20px] overflow-hidden`}
       >
         <Image
           src={image}
           alt={titre}
-          width={1500}
-          height={1500}
-          className={`w-full lg:w-1/2 h-auto object-cover  ${
+          width={500}
+          height={500}
+          className={`w-full h-auto lg:w-1/2 object-cover md:object-fill   ${
             isInvers ? "md:rounded-r-[20px]" : "md:rounded-l-[20px]"
           }`}
           style={{
@@ -56,7 +56,7 @@ export default function Projet({
         />
 
         <div
-          className={`w-full capitalize py-[clamp(2rem,4vw,4rem)] px-[clamp(1rem,3vw,2rem)]`}
+          className={`flex flex-col justify-center w-full capitalize py-5 px-5`}
         >
           <h1 className="font-black text-center sm:text-start text-[clamp(1.5rem,2.5vw,2rem)] mb-3">
             {titre}

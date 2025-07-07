@@ -158,7 +158,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div id="#contact">
+      <div id="contact">
         <div className="flex flex-col mb-5 items-center text-center">
           <h1 className=" text-[clamp(1.5rem,5vw,3.25rem)] uppercase text-5xl font-black text-emerald-700 mb-3">
             Disponible pour vos projets !
