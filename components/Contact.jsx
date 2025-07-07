@@ -46,42 +46,44 @@ export default function Contact() {
 
   return (
     <>
-      <div className="flex flex-col items-center my-5 border w-[40%] border-zinc-200 rounded-[.8rem] p-4 tracking-wide shadow-md">
-        <h1 className="text-2xl font-black text-emerald-700 capitalize text-center mb-2">
+      <div className="flex flex-col items-center my-[clamp(1rem,5vw,4rem)] border min-w-[50%] max-w-[90%] border-zinc-200 rounded-[.8rem] p-[clamp(1rem,3vw,2rem)] tracking-wide shadow-md">
+        <h1 className="text-[clamp(1.5rem,2.5vw,1.75rem)] tex font-black text-emerald-700 capitalize text-center mb-[clamp(0.5rem,1vw,1rem)]">
           Contactez-moi
         </h1>
-        <span className="border-[.5px] w-[95%] border-zinc-300 mb-7 "></span>
+
+        <span className="border-[.5px] w-full border-zinc-300 mb-[clamp(1rem,2vw,2rem)]"></span>
+
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col w-[95%] items-start"
+          className="flex flex-col w-full items-start"
           noValidate
         >
-          <label className="flex flex-col mb-3 w-[100%]">
+          <label className="flex flex-col mb-[clamp(0.5rem,1vw,1rem)] w-full">
             <input
               type="text"
               name="nom"
               placeholder="Votre Nom *"
               required
-              className="border-b-[.5px] border-zinc-400 pl-2 rounded-[0.3rem] mb-5"
+              className="border-b-[.5px] border-zinc-400 pl-2 rounded-[0.3rem] mb-[clamp(0.8rem,1.5vw,1.2rem)] text-[clamp(1rem,2vw,1.1rem)]"
             />
             <input
               type="text"
               name="email"
               placeholder="Votre Email *"
               required
-              className="border-b-[.5px] border-zinc-400 pl-2 rounded-[0.3rem] mb-5"
+              className="border-b-[.5px] border-zinc-400 pl-2 rounded-[0.3rem] mb-[clamp(0.8rem,1.5vw,1.2rem)] text-[clamp(1rem,2vw,1.1rem)]"
             />
             <textarea
               name="message"
               minLength={10}
               maxLength={200}
               placeholder="Votre Message *"
-              className="border-b-[.5px] border-zinc-400 pl-2 rounded-[0.3rem] mb-8 min-h-[7rem]"
+              className="border-b-[.5px] border-zinc-400 pl-2 rounded-[0.3rem] mb-[clamp(1rem,2vw,2rem)] min-h-[7rem] text-[clamp(1rem,2vw,1.1rem)]"
               required
             />
           </label>
 
-          <button className=" w-full flex items-center justify-center gap-2 mb-4 px-3 py-2 border border-zinc-200 rounded-full tracking-wide shadow-md hover:bg-emerald-100 hover:border-emerald-100 transition duration-200 hover:scale-[1.01]">
+          <button className="w-full flex items-center justify-center gap-2 mb-4 px-[clamp(0.5rem,1vw,1rem)] py-[clamp(0.5rem,1vw,1rem)] border border-zinc-200 rounded-full tracking-wide shadow-md hover:bg-emerald-100 hover:border-emerald-100 transition duration-200 hover:scale-[1.01]">
             <Image
               src="/send.png"
               alt="logo envoyer le message"
@@ -89,15 +91,80 @@ export default function Contact() {
               height={50}
               className="w-6 h-6"
             />
-            <span className="font-semibold text-black capitalize">
+            <span className="font-semibold text-black capitalize text-[clamp(1rem,2vw,1.1rem)]">
               Envoyer le Message
             </span>
           </button>
 
-          {erreur && <h2 className="text-red-400 font-bold ">{erreur}</h2>}
-          {success && <h2 className="text-green-600 font-bold ">{success}</h2>}
+          {erreur && (
+            <h2 className="text-red-400 font-bold text-[clamp(1rem,2vw,1.1rem)]">
+              {erreur}
+            </h2>
+          )}
+          {success && (
+            <h2 className="text-green-600 font-bold text-[clamp(1rem,2vw,1.1rem)]">
+              {success}
+            </h2>
+          )}
         </form>
       </div>
     </>
   );
 }
+
+// return (
+//   <>
+//     <div className="flex flex-col items-center my-8 border w-[40%] border-zinc-200 rounded-[.8rem] p-4 tracking-wide shadow-md">
+//       <h1 className="text-2xl font-black text-emerald-700 capitalize text-center mb-2">
+//         Contactez-moi
+//       </h1>
+//       <span className="border-[.5px] w-[95%] border-zinc-300 mb-7 "></span>
+//       <form
+//         onSubmit={handleSubmit}
+//         className="flex flex-col w-[95%] items-start"
+//         noValidate
+//       >
+//         <label className="flex flex-col mb-3 w-[100%]">
+//           <input
+//             type="text"
+//             name="nom"
+//             placeholder="Votre Nom *"
+//             required
+//             className="border-b-[.5px] border-zinc-400 pl-2 rounded-[0.3rem] mb-5"
+//           />
+//           <input
+//             type="text"
+//             name="email"
+//             placeholder="Votre Email *"
+//             required
+//             className="border-b-[.5px] border-zinc-400 pl-2 rounded-[0.3rem] mb-5"
+//           />
+//           <textarea
+//             name="message"
+//             minLength={10}
+//             maxLength={200}
+//             placeholder="Votre Message *"
+//             className="border-b-[.5px] border-zinc-400 pl-2 rounded-[0.3rem] mb-8 min-h-[7rem]"
+//             required
+//           />
+//         </label>
+
+//         <button className=" w-full flex items-center justify-center gap-2 mb-4 px-3 py-2 border border-zinc-200 rounded-full tracking-wide shadow-md hover:bg-emerald-100 hover:border-emerald-100 transition duration-200 hover:scale-[1.01]">
+//           <Image
+//             src="/send.png"
+//             alt="logo envoyer le message"
+//             width={50}
+//             height={50}
+//             className="w-6 h-6"
+//           />
+//           <span className="font-semibold text-black capitalize">
+//             Envoyer le Message
+//           </span>
+//         </button>
+
+//         {erreur && <h2 className="text-red-400 font-bold ">{erreur}</h2>}
+//         {success && <h2 className="text-green-600 font-bold ">{success}</h2>}
+//       </form>
+//     </div>
+//   </>
+// );

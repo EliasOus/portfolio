@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
     <html lang="fr" className={robotoSerif} suppressHydrationWarning>
       <body className="flex flex-col m-0 min-h-screen">
         <Header />
-        <main className="flex-1 h-full w-full mx-auto max-w-[65%] p-6">
+        <main className="flex-1 h-full w-full mx-auto  max-w-[80%] lg:max-w-[70%] p-6">
           {children}
         </main>
         <Footer />
