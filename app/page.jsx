@@ -1,4 +1,5 @@
 import Projet from "@/components/Projet";
+import Contact from "@/components/Contact";
 import Image from "next/image";
 import Link from "next/link";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
@@ -154,6 +155,8 @@ export default function Home() {
             Je suis ouvert à de nouvelles opportunités, en freelance ou en
             emploi. 📩
           </h1>
+          
+          <Contact />
         </div>
       </div>
     </>

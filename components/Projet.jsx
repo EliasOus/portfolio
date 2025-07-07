@@ -3,7 +3,6 @@ import Link from "next/link";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 
-
 export default function Projet({
   image,
   titre,
@@ -47,7 +46,6 @@ export default function Projet({
             <h2 className="font-black text-[1.05rem]">Stack technique | </h2>
             <div className="flex flex-row gap-3">
               {stacks.map((stack, index) => (
-                
                 <Image
                   key={index}
                   src={stack}
@@ -62,7 +60,7 @@ export default function Projet({
             <li>
               <Link
                 href={lienDemo}
-                className=" flex flex-row justify-center items-center gap-1 font-bold rounded-[5px] border-[0.05rem] p-1  border-zinc-400 capitalize hover:bg-emerald-200 hover:border-emerald-200 transition duration-300 hover:scale-105"
+                className=" flex flex-row justify-center items-center gap-1 font-bold rounded-[5px] border-[0.05rem] p-1  border-zinc-300 capitalize hover:bg-emerald-100 hover:border-emerald-100 transition duration-300 hover:scale-[1.01]"
               >
                 Live Demo <FaExternalLinkAlt className="text-sm" />
               </Link>
@@ -70,7 +68,7 @@ export default function Projet({
             <li>
               <Link
                 href={lienGitHub}
-                className=" flex flex-row justify-center items-center gap-1 font-bold rounded-[5px] border-[0.05rem] p-1  border-zinc-400 capitalize hover:bg-emerald-200 hover:border-emerald-200 transition duration-300 hover:scale-105"
+                className=" flex flex-row justify-center items-center gap-1 font-bold rounded-[5px] border-[0.05rem] p-1  border-zinc-300 capitalize hover:bg-emerald-100 hover:border-emerald-100 transition duration-300 hover:scale-[1.01]"
               >
                 code
                 <FaGithub className="text-xl" />

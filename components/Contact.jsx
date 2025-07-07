@@ -1,0 +1,103 @@
+"use client";
+import contactServer from "@/actions/contact-action";
+import { contactSchema } from "@/lib/schema";
+import Image from "next/image";
+import { useState } from "react";
+
+export default function Contact() {
+  const [erreur, setErreur] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    const datas = {
+      nom: data.get("nom"),
+      email: data.get("email"),
+      message: data.get("message"),
+    };
+
+    console.log(datas);
+
+    const isValideData = contactSchema.safeParse(datas);
+
+    if (!isValideData.success) {
+      setErreur(isValideData.error.errors[0].message);
+      setSuccess("");
+      return;
+    }
+
+    setErreur("");
+
+    try {
+      await contactServer(isValideData);
+      setSuccess(
+        "Votre message a bien été envoyé. Merci de nous avoir contactés !"
+      );
+      form.reset();
+    } catch (err) {
+      console.error("Erreur d'envoi :", err);
+      setErreur("Une erreur est survenue lors de l'envoi du message.");
+      setSuccess("");
+    }
+  };
+
+  return (
+    <>
+      <div className="flex flex-col items-center my-5 border w-[40%] border-zinc-200 rounded-[.8rem] p-4 tracking-wide shadow-md">
+        <h1 className="text-2xl font-black text-emerald-700 capitalize text-center mb-2">
+          Contactez-moi
+        </h1>
+        <span className="border-[.5px] w-[95%] border-zinc-300 mb-7 "></span>
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col w-[95%] items-start"
+          noValidate
+        >
+          <label className="flex flex-col mb-3 w-[100%]">
+            <input
+              type="text"
+              name="nom"
+              placeholder="Votre Nom *"
+              required
+              className="border-b-[.5px] border-zinc-400 pl-2 rounded-[0.3rem] mb-5"
+            />
+            <input
+              type="text"
+              name="email"
+              placeholder="Votre Email *"
+              required
+              className="border-b-[.5px] border-zinc-400 pl-2 rounded-[0.3rem] mb-5"
+            />
+            <textarea
+              name="message"
+              minLength={10}
+              maxLength={200}
+              placeholder="Votre Message *"
+              className="border-b-[.5px] border-zinc-400 pl-2 rounded-[0.3rem] mb-8 min-h-[7rem]"
+              required
+            />
+          </label>
+
+          <button className=" w-full flex items-center justify-center gap-2 mb-4 px-3 py-2 border border-zinc-200 rounded-full tracking-wide shadow-md hover:bg-emerald-100 hover:border-emerald-100 transition duration-200 hover:scale-[1.01]">
+            <Image
+              src="/send.png"
+              alt="logo envoyer le message"
+              width={50}
+              height={50}
+              className="w-6 h-6"
+            />
+            <span className="font-semibold text-black capitalize">
+              Envoyer le Message
+            </span>
+          </button>
+
+          {erreur && <h2 className="text-red-400 font-bold ">{erreur}</h2>}
+          {success && <h2 className="text-green-600 font-bold ">{success}</h2>}
+        </form>
+      </div>
+    </>
+  );
+}
