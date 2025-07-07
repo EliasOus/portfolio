@@ -14,7 +14,7 @@ Développeur full-stack junior, je conçois des applications web solides, perfor
 
 ## 🚀 Lien en ligne
 
-👉 [https://ousameur-elias.vercel.app](https://ousameur-elias.vercel.app)
+👉 [https://ousameurelias.vercel.app/](https://ousameurelias.vercel.app/)
 
 ---
 
