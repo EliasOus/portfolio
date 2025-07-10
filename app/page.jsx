@@ -150,6 +150,7 @@ export default function Home() {
               "sqlite.svg",
               "/css3.svg",
               "/html5.svg",
+              "/google-books.svg"
             ]}
           />
         </div>
