@@ -13,6 +13,7 @@ export default function Projet({
   lienGitHub,
   isInvers = false,
   stacks,
+  label,
 }) {
   const [isDesktop, setIsDesktop] = useState(false);
 
@@ -30,6 +31,15 @@ export default function Projet({
     // Nettoyage
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
+
+  const handleClick = (label, category) => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "click", {
+        event_category: category,
+        event_label: label,
+      });
+    }
+  };
 
   return (
     <>
@@ -87,6 +97,9 @@ export default function Projet({
               <Link
                 href={lienDemo}
                 className="flex justify-center sm:justify-start items-center gap-1  font-bold rounded-[5px] border-[0.05rem] p-2 border-zinc-300 capitalize hover:bg-emerald-100 hover:border-emerald-100 transition duration-300 hover:scale-[1.01]"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => handleClick(label, "projet-demo")}
               >
                 Demo <FaExternalLinkAlt className="text-[.95rem]" />
               </Link>
@@ -95,6 +108,9 @@ export default function Projet({
               <Link
                 href={lienGitHub}
                 className="flex justify-center sm:justify-start items-center gap-1 font-bold rounded-[5px] border-[0.05rem] p-2 border-zinc-300 capitalize hover:bg-emerald-100 hover:border-emerald-100 transition duration-300 hover:scale-[1.01]"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => handleClick(label, "projet-code")}
               >
                 Code <FaGithub className="text-xl" />
               </Link>

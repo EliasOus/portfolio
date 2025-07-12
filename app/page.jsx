@@ -2,13 +2,16 @@ import Projet from "@/components/Projet";
 import Contact from "@/components/Contact";
 import Image from "next/image";
 import Link from "next/link";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
+
 
 import manageStockImg from "@/public/manageStock.png";
 import videGarageImg from "@/public/videGarage.png";
 import swapPagesImg from "@/public/swapPages.png";
+import { event } from "@/lib/gtag";
+import Lient from "@/components/Lient";
 
 export default function Home() {
+
   return (
     <>
       <div className="flex flex-col my-15 lg:my-30 px-4">
@@ -30,14 +33,16 @@ export default function Home() {
             </p>
             <ul className="flex gap-2 mt-4 justify-center lg:justify-start">
               <li>
-                <Link href="https://www.linkedin.com/in/elias-ousameur-b632241a3/">
-                  <FaLinkedin className="text-2xl transition duration-300 hover:scale-110" />
-                </Link>
+                <Lient
+                  href={"https://www.linkedin.com/in/elias-ousameur-b632241a3/"}
+                  label={"Linkedin"}
+                />
               </li>
               <li>
-                <Link href="https://github.com/EliasOus">
-                  <FaGithub className="text-2xl transition duration-300 hover:scale-110" />
-                </Link>
+                <Lient
+                  href={"https://github.com/EliasOus"}
+                  label={"GitHub"}
+                />
               </li>
             </ul>
           </div>
@@ -123,6 +128,7 @@ export default function Home() {
               "/postgresql.svg",
               "/css3.svg",
             ]}
+            label={"ManageStock"}
           />
 
           <Projet
@@ -135,6 +141,7 @@ export default function Home() {
             lienGitHub={"https://github.com/EliasOus/videgarage"}
             isInvers={true}
             stacks={["/nextjs.svg", "/react.svg", "/sqlite.svg", "/css3.svg"]}
+            label={"VideGarage"}
           />
           <Projet
             image={swapPagesImg}
@@ -150,8 +157,9 @@ export default function Home() {
               "sqlite.svg",
               "/css3.svg",
               "/html5.svg",
-              "/google-books.svg"
+              "/google-books.svg",
             ]}
+            label={"SwapPages"}
           />
         </div>
       </div>
