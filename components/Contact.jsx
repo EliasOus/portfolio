@@ -7,9 +7,11 @@ import { useState } from "react";
 export default function Contact() {
   const [erreur, setErreur] = useState("");
   const [success, setSuccess] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     const form = e.currentTarget;
     const data = new FormData(form);
 
@@ -19,12 +21,11 @@ export default function Contact() {
       message: data.get("message"),
     };
 
-    console.log(datas);
-
     const isValideData = contactSchema.safeParse(datas);
 
     if (!isValideData.success) {
       setErreur(isValideData.error.errors[0].message);
+      setIsLoading(false)
       setSuccess("");
       return;
     }
@@ -36,6 +37,8 @@ export default function Contact() {
       setSuccess(
         "Votre message a bien été envoyé. Merci de nous avoir contactés !"
       );
+      setIsLoading(false);
+
       form.reset();
     } catch (err) {
       console.error("Erreur d'envoi :", err);
@@ -84,16 +87,28 @@ export default function Contact() {
           </label>
 
           <button className="w-full flex items-center justify-center gap-2 mb-4 px-[clamp(0.5rem,1vw,1rem)] py-[clamp(0.5rem,1vw,1rem)] border border-zinc-200 rounded-full tracking-wide shadow-md hover:bg-emerald-100 hover:border-emerald-100 transition duration-200 hover:scale-[1.01]">
-            <Image
-              src="/send.png"
-              alt="logo envoyer le message"
-              width={50}
-              height={50}
-              className="w-6 h-6"
-            />
-            <span className="font-semibold text-black capitalize text-[clamp(1rem,2vw,1.1rem)]">
-              Envoyer le Message
-            </span>
+            {isLoading ? (
+              // Loader visible pendant le chargement
+              <>
+                <div className="w-5 h-5 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin" />
+                <span className="font-semibold text-black capitalize text-[clamp(1rem,2vw,1.1rem)]">
+                  Envoi...
+                </span>
+              </>
+            ) : (
+              <>
+                <Image
+                  src="/send.png"
+                  alt="logo envoyer le message"
+                  width={50}
+                  height={50}
+                  className="w-6 h-6"
+                />
+                <span className="font-semibold text-black capitalize text-[clamp(1rem,2vw,1.1rem)]">
+                  Envoyer le Message
+                </span>
+              </>
+            )}
           </button>
 
           {erreur && (
