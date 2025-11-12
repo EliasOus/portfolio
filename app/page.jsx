@@ -17,11 +17,11 @@ export default function Home() {
       <div className="flex flex-col my-15 lg:my-30 px-4">
         <div className="flex flex-col justify-center lg:flex-row-reverse mb-5 lg:justify-between gap-6 items-center">
           <Image
-            src="/avatar3.png"
+            src="/avatar1.png"
             alt="Profile picture"
-            width={700}
-            height={700}
-            className="object-cover w-50 h-50 sm:w-52 sm:h-52 md:w-64 md:h-64 lg:w-80 lg:h-80"
+            width={3500}
+            height={3500}
+            className="object-cover object-[0px_1px] w-50 h-50 sm:w-52 sm:h-52 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full"
           />
           <div className="w-full flex flex-col justify-center lg:w-[33rem]">
             <h1 className="font-black text-[clamp(1.3rem,5vw,3.5rem)] text-center lg:text-start">
