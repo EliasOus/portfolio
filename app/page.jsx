@@ -3,15 +3,14 @@ import Contact from "@/components/Contact";
 import Image from "next/image";
 import Link from "next/link";
 
-
 import manageStockImg from "@/public/manageStock.png";
 import videGarageImg from "@/public/videGarage.png";
 import swapPagesImg from "@/public/swapPages.png";
+import tcfTrainingCanadaImg from "@/public/tcftrainingcanada.png"
 import { event } from "@/lib/gtag";
 import Lient from "@/components/Lient";
 
 export default function Home() {
-
   return (
     <>
       <div className="flex flex-col my-15 lg:my-30 px-4">
@@ -39,10 +38,7 @@ export default function Home() {
                 />
               </li>
               <li>
-                <Lient
-                  href={"https://github.com/EliasOus"}
-                  label={"GitHub"}
-                />
+                <Lient href={"https://github.com/EliasOus"} label={"GitHub"} />
               </li>
             </ul>
           </div>
@@ -114,6 +110,23 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col gap-20 mb-30">
+          <Projet
+            image={tcfTrainingCanadaImg}
+            titre={"TCFTrainingCanada 🎓"}
+            description={
+              "TCFTrainingCanada est une plateforme SAAS conçue pour accompagner les candidats à l’immigration canadienne dans la préparation du TCF Canada. Il s’agit d’un projet entrepreneurial développé de manière autonome, intégrant une solution complète d’entraînement avec simulations d’examen, suivi de progression et gestion des abonnements. La plateforme est actuellement en ligne et utilisée par des utilisateurs payants."
+            }
+            lienDemo={"https://www.tcftrainingcanada.com/"}
+            lienGitHub={"#"}
+            stacks={[
+              "/nextjs.svg",
+              "/react.svg",
+              "/postgresql.svg",
+              "/css3.svg",
+              "/stripe.svg",
+            ]}
+            label={"TCFTrainingCanada"}
+          />
           <Projet
             image={manageStockImg}
             titre={"ManageStock 📦"}
